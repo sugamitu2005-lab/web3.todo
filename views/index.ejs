@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>TODO App</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header><h1>TODO App</h1></header>
+
+  <main>
+    <form action="/add" method="POST">
+      <input type="text" name="text" placeholder="新しいタスク" required>
+      <button type="submit">追加</button>
+    </form>
+
+    <ul>
+      <% todos.forEach(todo => { %>
+        <li>
+          <span style="<%= todo.done ? 'text-decoration: line-through;' : '' %>">
+            <%= todo.text %>
+          </span>
+
+          <% if (!todo.done) { %>
+            <form action="/<%= todo.id %>/done" method="POST" style="display:inline;">
+              <button>完了</button>
+            </form>
+          <% } %>
+
+          <form action="/<%= todo.id %>/delete" method="POST" style="display:inline;">
+            <button>削除</button>
+          </form>
+        </li>
+      <% }) %>
+    </ul>
+  </main>
+</body>
+</html>
