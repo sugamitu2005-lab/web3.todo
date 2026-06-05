@@ -1,0 +1,18 @@
+
+---
+
+### 📦 package.json
+
+```json
+{
+  "name": "todo-app",
+  "version": "1.0.0",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js"
+  },
+  "dependencies": {
+    "express": "^4.19.0",
+    "ejs": "^3.1.9"
+  }
+}
